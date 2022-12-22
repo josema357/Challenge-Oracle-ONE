@@ -1,41 +1,171 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+:root{
+    --bg-color: #f3f5fc;
+    --btn-color: #0A3871;
+}
 body{
     font-family: 'Quicksand', sans-serif;
     margin: 0;
-    background-color: #f3f5fc;
-}
-.container{
-    display: grid;
-    grid-template-columns: auto 1fr 400px;
-    margin: 30px 20px;
-    height: calc(100vh - 60px);
-    gap: 20px;
-}
-.logo{
-    width: 120px;
+    background-color: var(--bg-color);
     text-align: center;
 }
+.container{
+    display: flex;
+    max-width: 1350px;
+    margin: auto;
+    height: 100vh;
+    padding: 0 20px;
+}
+.logo{
+    margin: 0;
+    margin-top: 40px;
+    width: 120px;
+}
 .interactive-part{
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 150px;
-    margin-bottom: 50px;
 }
 .input{
-    background-color: #f3f5fc;
+    background-color: var(--bg-color);
     border: none;
     outline: none;
     font-size: 16px;
     font-family: 'Quicksand', sans-serif;
+    width: 80%;
+    margin: auto;
+    margin-top: 150px;
+}
+.warning{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 90%;
+    margin: auto;
+}
+.warning p{
+    font-size: 12px;
+}
+.buttons{
+    width: 90%;
+    display: flex;
+    gap: 10px;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.primary-button{
+    background-color: var(--btn-color);
+    color: white;
+    border: none;
+    outline: none;
+    width: 50%;
+    padding: 20px;
+    border-radius: 24px;
+    cursor: pointer;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+}
+.secondary-button{
+    border: 1px solid var(--btn-color);
+    width: 50%;
+    padding: 20px;
+    border-radius: 24px;
+    cursor: pointer;
+    background-color: transparent;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
 }
 .rectangle{
+    width: 350px;
+    padding: 24px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 24px;
+    margin: 20px 0;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.09);
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    height: calc(100vh -40px);
-    background-color: white;
-    border-radius: 32px;
-    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
-    padding: 32px;
+    justify-content: center;
+}
+.caja-imagen > img{
+    max-width: 250px;
+    width: 100%;
+    height: auto;
+}
+.caja-info div:nth-child(1){
+    margin: 20px 60px 0;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+.caja-info div:nth-child(2){
+    margin: 20px 20px 0;
+    font-size: 16px;
+    text-align: center;
+}
+.text-encriptado > p{
+    display: none;
+    word-wrap: break-word;
+    margin: 0;
+}
+.copy-button{
+    display: none;
+    width: 100%;
+}
+
+@media (max-width: 1024px){
+    .container{
+        flex-direction: column;
+        padding-bottom: 20px;
+        justify-content: space-between;
+        height: 100vh;
+        box-sizing: border-box;
+    }
+    .input{
+        margin-top: 80px;
+    }
+    .warning{
+        width: 100%;
+        margin: 0;
+    }
+    .buttons{
+        width: 100%;
+        margin: 0;
+    }
+    .rectangle{
+        width: 100%;
+        margin: 0;
+    }
+    .caja-imagen > img{
+        display: none;
+    }
+}
+@media (max-width: 450px){
+    .container{
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .input{
+        margin-top: 40px;
+    }
+    .buttons{
+        flex-direction: column;
+    }
+    .buttons button{
+        width: 100%;
+    }
+}
+@media (max-width: 450px){
+    .caja-info div:nth-child(1){
+        margin: 20px 5px 0;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+    }
+    .caja-info div:nth-child(2){
+        margin: 20px 5px 0;
+        font-size: 16px;
+        text-align: center;
+    }
 }
