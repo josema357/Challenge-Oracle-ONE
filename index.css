@@ -9,12 +9,16 @@ body{
     background-color: var(--bg-color);
     text-align: center;
 }
+.inactive{
+    display: none;
+}
 .container{
     display: flex;
     max-width: 1350px;
     margin: auto;
     height: 100vh;
     padding: 0 20px;
+    box-sizing: border-box;
 }
 .logo{
     margin: 0;
@@ -36,6 +40,7 @@ body{
     width: 80%;
     margin: auto;
     margin-top: 150px;
+    resize: none;
 }
 .warning{
     display: flex;
@@ -60,7 +65,7 @@ body{
     border: none;
     outline: none;
     width: 50%;
-    padding: 20px;
+    padding: 15px;
     border-radius: 24px;
     cursor: pointer;
     font-family: 'Quicksand', sans-serif;
@@ -69,7 +74,7 @@ body{
 .secondary-button{
     border: 1px solid var(--btn-color);
     width: 50%;
-    padding: 20px;
+    padding: 15px;
     border-radius: 24px;
     cursor: pointer;
     background-color: transparent;
@@ -104,13 +109,11 @@ body{
     font-size: 16px;
     text-align: center;
 }
-.text-encriptado > p{
-    display: none;
+.text-encriptado{
     word-wrap: break-word;
     margin: 0;
 }
 .copy-button{
-    display: none;
     width: 100%;
 }
 
@@ -119,7 +122,7 @@ body{
         flex-direction: column;
         padding-bottom: 20px;
         justify-content: space-between;
-        height: 100vh;
+        height: 100%;
         box-sizing: border-box;
     }
     .input{
@@ -140,6 +143,12 @@ body{
     .caja-imagen > img{
         display: none;
     }
+    .caja-info div:nth-child(1){
+        margin: 0 5px;
+        font-weight: bold;
+        font-size: 18px;
+        text-align: center;
+    }
 }
 @media (max-width: 450px){
     .container{
@@ -148,6 +157,12 @@ body{
     }
     .input{
         margin-top: 40px;
+        width: 90%;
+    }
+    .warning p{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
     .buttons{
         flex-direction: column;
@@ -155,17 +170,23 @@ body{
     .buttons button{
         width: 100%;
     }
-}
-@media (max-width: 450px){
-    .caja-info div:nth-child(1){
-        margin: 20px 5px 0;
-        font-weight: bold;
-        font-size: 18px;
-        text-align: center;
-    }
     .caja-info div:nth-child(2){
         margin: 20px 5px 0;
         font-size: 16px;
         text-align: center;
+    }
+}
+@media (max-width: 350px){
+    .container{
+        padding: 0 10px 10px;
+    }
+    .input{
+        width: 100%;
+    }
+    .rectangle{
+        padding: 24px 12px;
+    }
+    .buttons{
+        padding-bottom: 20px;
     }
 }
