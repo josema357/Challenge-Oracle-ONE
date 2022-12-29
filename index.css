@@ -112,6 +112,9 @@ body{
 .text-encriptado{
     word-wrap: break-word;
     margin: 0;
+    padding-bottom: 25px;
+    text-align: left;
+    hyphens: auto;
 }
 .copy-button{
     width: 100%;
