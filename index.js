@@ -6,6 +6,7 @@ const cajaInfo=document.querySelector(".caja-info");
 const cajonTextos=document.querySelector(".rectangle");
 const textoEncriptado=document.querySelector(".text-encriptado");
 const copiarBoton=document.querySelector(".copy-button");
+const mensajeFlotante=document.querySelector(".floating-message");
 
 encriptarBoton.addEventListener("click",encriptar);
 copiarBoton.addEventListener("click",copiarTexto);
@@ -16,14 +17,18 @@ const validador=/[a-z]|[0-9]|\s/;
 //Funcion para el boton Encriptar
 function encriptar(){
     let cadena=texto.value.split("");
-    valido=validarTexto(cadena);
+    let valido=validarTexto(cadena);
     if(valido===true && texto.value!==""){
         cajaImagen.classList.add("inactive");
         cajaInfo.classList.add("inactive");
         cajonTextos.style.justifyContent="space-between";
         textoEncriptado.classList.remove("inactive");
         copiarBoton.classList.remove("inactive");
-        textoEncriptado.innerText=realizarEncrip(cadena)
+        textoEncriptado.innerText=realizarEncrip(cadena);
+    }
+    else{
+        mensajeFlotante.style.opacity=1;
+        setTimeout(()=>{mensajeFlotante.style.opacity=0},2000);
     }
 }
 
@@ -38,11 +43,11 @@ function validarTexto(arr){
 //Funcion para encriptar el texto
 function realizarEncrip(arr){
     for(let i=0;i<arr.length;i++){
-        if(arr[i]=='e') {arr[i]='enter'} 
-        if(arr[i]=='i') {arr[i]='imes'}
-        if(arr[i]=='a') {arr[i]='ai'}
-        if(arr[i]=='o') {arr[i]='ober'}
-        if(arr[i]=='u') {arr[i]='ufat'}
+        if(arr[i]=='e') {arr[i]='enter'};
+        if(arr[i]=='i') {arr[i]='imes'};
+        if(arr[i]=='a') {arr[i]='ai'};
+        if(arr[i]=='o') {arr[i]='ober'};
+        if(arr[i]=='u') {arr[i]='ufat'};
     }
     return arr.join("");
 }
@@ -55,12 +60,32 @@ function copiarTexto(){
         console.log("Texto copiado exitosamente");
     })
     .catch(err=>{
-        console.log("Error al copiar", err)
+        console.log("Error al copiar", err);
     })
 }
 
 //Funcion para el boton de desencriptar
 function desencriptar(){
-    let cadena=texto.value.split(" ");
-    console.log(cadena)
+    let cadena=texto.value.split("");
+    let valido=validarTexto(cadena);
+    let arrEncrip=texto.value.split(" ");
+    if(valido===true && texto.value!==""){
+        textoEncriptado.innerText=realizarDesencrip(arrEncrip);
+    }
+    else{
+        mensajeFlotante.style.opacity=1;
+        setTimeout(()=>{mensajeFlotante.style.opacity=0},800);
+    }
+}
+
+//Funcion para desencriptar el texto
+function realizarDesencrip(arr){
+    for(let i=0;i<arr.length;i++){
+        if(arr[i].includes('enter')) {arr[i]=arr[i].replace(/enter/g,"e")};
+        if(arr[i].includes('imes')){arr[i]=arr[i].replace(/imes/g,"i")};
+        if(arr[i].includes('ai')){arr[i]=arr[i].replace(/ai/g,"a")};
+        if(arr[i].includes('ober')){arr[i]=arr[i].replace(/ober/g,"o")};
+        if(arr[i].includes('ufat')){arr[i]=arr[i].replace(/ufat/g,"u")};
+    }
+    return arr.join(" ");
 }

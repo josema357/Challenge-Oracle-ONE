@@ -119,6 +119,28 @@ body{
 .copy-button{
     width: 100%;
 }
+.floating-message{
+    opacity: 0;
+    background-color: var(--btn-color);
+    color: white;
+    width: 400px;
+    height: 20px;
+    margin: auto;
+    border-radius: 30px;
+    padding: 5px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 1s;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 16px;
+}
+.floating-message p{
+    margin: 0;
+}
+
 
 @media (max-width: 1024px){
     .container{
@@ -178,6 +200,15 @@ body{
         font-size: 16px;
         text-align: center;
     }
+    .floating-message{
+        font-size: 12px;
+        height: 15px;
+        width: 90%;
+        bottom: 30px;
+        top: initial;
+        left: 0;
+        right: 0;
+}
 }
 @media (max-width: 350px){
     .container{
