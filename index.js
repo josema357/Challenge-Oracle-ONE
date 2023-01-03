@@ -6,13 +6,12 @@ const cajaInfo=document.querySelector(".caja-info");
 const cajonTextos=document.querySelector(".rectangle");
 const textoEncriptado=document.querySelector(".text-encriptado");
 const copiarBoton=document.querySelector(".copy-button");
-const mensajeFlotante=document.querySelector(".floating-message");
 
 encriptarBoton.addEventListener("click",encriptar);
 copiarBoton.addEventListener("click",copiarTexto);
 desencriptarBoton.addEventListener("click",desencriptar);
 
-const validador=/[a-z]|[0-9]|\s/;
+const validador=/[a-z]|[0-9]|\s|[¿?!¡]/;
 
 //Funcion para el boton Encriptar
 function encriptar(){
@@ -25,10 +24,6 @@ function encriptar(){
         textoEncriptado.classList.remove("inactive");
         copiarBoton.classList.remove("inactive");
         textoEncriptado.innerText=realizarEncrip(cadena);
-    }
-    else{
-        mensajeFlotante.style.opacity=1;
-        setTimeout(()=>{mensajeFlotante.style.opacity=0},2000);
     }
 }
 
@@ -70,11 +65,12 @@ function desencriptar(){
     let valido=validarTexto(cadena);
     let arrEncrip=texto.value.split(" ");
     if(valido===true && texto.value!==""){
+        cajaImagen.classList.add("inactive");
+        cajaInfo.classList.add("inactive");
+        cajonTextos.style.justifyContent="space-between";
+        textoEncriptado.classList.remove("inactive");
+        copiarBoton.classList.remove("inactive");
         textoEncriptado.innerText=realizarDesencrip(arrEncrip);
-    }
-    else{
-        mensajeFlotante.style.opacity=1;
-        setTimeout(()=>{mensajeFlotante.style.opacity=0},800);
     }
 }
 
